@@ -25,9 +25,11 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 
 
+
+
 class MainScreen extends Component {
   static navigationOptions = {
-    title: 'CREATE NEW GAME',
+    title: 'Main Screen',
     headerTitle: "Main Screen",
     headerStyle: {
       backgroundColor: '#364051'
@@ -50,14 +52,20 @@ class MainScreen extends Component {
     await this.props.getAllShows();
   }
 
+  onChange =()=>{
+
+  }
+
 
 
   render() {
     const {shows} = this.props;
 
     return (
+      <Container style={{alignItems: 'center'}}>
+     
       <KeyboardAwareScrollView>
-      <Container>
+   
         <Content>
         <Item style={{flexDirection: 'column'}}>
 
@@ -65,8 +73,13 @@ class MainScreen extends Component {
     
         </Item>
         </Content>
-      </Container>
+    
       </KeyboardAwareScrollView>
+      <Item style={styles.fixedFooter}>
+      <Text style={{fontWeight:'bold',fontSize:20,color:'white'}}> Nir Hezroni</Text>
+      </Item>
+      </Container>
+     
 
     );
   }
@@ -95,6 +108,18 @@ const styles = {
     borderStyle: 'solid',
     borderColor: '#979797',
     borderWidth: 1,
+  },
+
+  fixedFooter: {
+    backgroundColor: '#364051',
+    justifyContent: 'center', 
+    alignItems: 'center',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 50,
+    width: 500, 
+    
   }
 
 };

@@ -36,7 +36,8 @@ class ShowItem extends Component {
   }
  
   _onPressButton = () =>{
-    this.props.navigation.navigate('ShowScreen');
+  
+    this.props.navigation.navigate('ShowScreen',{show:this.props.show,title:this.props.show.name});
   }
 
 
@@ -44,7 +45,7 @@ class ShowItem extends Component {
   render() {
 
     const { show } = this.props;
-   
+  
     console.log(show.image);
  
 
@@ -53,6 +54,7 @@ class ShowItem extends Component {
     return (
 
   <Item style={{alignItems: 'center',flexDirection:'column', borderWidth:2, borderColor: "black",}}>
+  <Card style={{ borderWidth: 20,borderColor: "black",}}>
     <Card style={styles.card}>
     <TouchableOpacity onPress={this._onPressButton}>
     <Image
@@ -68,6 +70,7 @@ class ShowItem extends Component {
 
   <Card style={styles.titleCard}>
   <Text style={{fontWeight:'bold',fontSize:22}}>Rating: {show.rating.average}</Text>
+</Card>
 </Card>
 </Item>
 

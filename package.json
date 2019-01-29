@@ -17,6 +17,7 @@
     "react-native-camera": "^1.2.0",
     "react-native-is-iphonex": "^1.0.1",
     "react-native-multiple-select": "^0.4.4",
+    "react-native-search-bar": "^3.4.2",
     "react-native-timer-countdown": "^2.0.3",
     "react-navigation": "^2.11.2",
     "react-navigation-redux-helpers": "^2.0.5",

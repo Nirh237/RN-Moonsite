@@ -26,56 +26,62 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 
 class ShowScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions  = {
     title: 'CREATE NEW GAME',
-    headerTitle: "Show Title",
+    headerTitle: this.props ? this.state.title : "show screen",
     headerStyle: {
       backgroundColor: '#364051'
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
       fontWeight: 'bold'
-    }
+    },
   };
+
 
   constructor(props) {
     super(props);
     this.state = {
-   
+   title: this.props.navigation.getParam('title', 'gfg'),
 
     };
-  }
-  componentDidMount = async () => {
+    console.log(this.props);
+    console.log(this.state.title);
 
-    await this.props.getAllShows();
   }
-
+ 
 
 
   render() {
- 
-  
- 
-
-
+    const show= this.props.navigation.getParam('show', 'gfg');
 
     return (
         
   <Container style={{alignItems: 'center'}}>
+  <KeyboardAwareScrollView>
   <Item style={{alignItems: 'center',flexDirection:'column', borderWidth:2, borderColor: "black",}}>
     <Card style={styles.card}>
     <Image
     style={styles.image}
     resizeMode="cover"
-    source={{ uri: "dfdgd" }}/>
+    source={{ uri:  show.image === null ? "dfdgd":show.image.medium }}/>
     </Card>
     <Card style={styles.titleCard}>
-    <Text style={{fontWeight:'bold',fontSize:22}}>title </Text>
+    <Text style={{fontWeight:'bold',fontSize:22}}>Rating:{show.rating.average} </Text>
   </Card>
 
-  <Card style={styles.titleCard}>
-  <Text style={{fontWeight:'bold',fontSize:22}}>Rating: </Text>
+  <Card style={styles.titleCardSummery}>
+  <Text style={{fontWeight:'bold',fontSize:10}}>Summery:{show.summary} </Text>
+  <Text style={{fontWeight:'bold',fontSize:10}}>Genres:{show.genres[0]},{show.genres[1]} </Text>
+  <Text style={{fontWeight:'bold',fontSize:10}}>Schedule: </Text>
+  <Text style={{fontWeight:'bold',fontSize:10}}>Network:{show.network.name} </Text>
+  <Text style={{fontWeight:'bold',fontSize:10}}>Language:{show.language} </Text>
 </Card>
+</Item>
+
+</KeyboardAwareScrollView>
+<Item style={styles.fixedFooter}>
+<Text style={{fontWeight:'bold',fontSize:20,color:'white'}}> Nir Hezroni</Text>
 </Item>
 </Container>
     
@@ -108,6 +114,15 @@ const styles = {
     alignItems: 'center'
   },
 
+  titleCardSummery: {
+    display:'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: 200,
+    width: 300,
+    
+  },
+
   image: {
     display:'flex',
     flexDirection: 'column',
@@ -115,6 +130,19 @@ const styles = {
     width: 300,
     alignItems: 'center'
   },
+
+  fixedFooter: {
+    backgroundColor: '#364051',
+    justifyContent: 'center', 
+    alignItems: 'center',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 50,
+    width:500,
+    
+  },
+
 
   Line: {
     width: 1,
@@ -127,15 +155,9 @@ const styles = {
 };
 
 
-const mapDispatchToProps = (dispatch) => ({
-  getAllShows: () => dispatch(getAllShows()),
-});
 
-const mapStateToProps = (state) => ({
-  shows: state.shows
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowScreen);
+export default ShowScreen;
 
 
 // <Button full style={styles.button} onPress={() => { this.openModal() }} >
