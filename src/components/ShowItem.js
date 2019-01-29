@@ -18,6 +18,7 @@ import {
 import { View,Image,TouchableOpacity } from 'react-native';
 import {getAllShows} from '../actions/shows';
 import { withNavigation } from 'react-navigation';
+import StarRating from 'react-native-star-rating';
 
 
 
@@ -70,6 +71,12 @@ class ShowItem extends Component {
 
   <Card style={styles.titleCard}>
   <Text style={{fontWeight:'bold',fontSize:22}}>Rating: {show.rating.average}</Text>
+  <StarRating
+  disabled={false}
+  maxStars={10}
+  starSize={20}
+  rating={show.rating.average}
+/>
 </Card>
 </Card>
 </Item>

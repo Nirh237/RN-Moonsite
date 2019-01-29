@@ -20,6 +20,7 @@ import { View, Image} from 'react-native';
 import { getAllShows } from '../actions/shows';
 import ShowItem from '../components/ShowItem';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import StarRating from 'react-native-star-rating';
 
 
 
@@ -68,6 +69,12 @@ class ShowScreen extends Component {
     </Card>
     <Card style={styles.titleCard}>
     <Text style={{fontWeight:'bold',fontSize:22}}>Rating:{show.rating.average} </Text>
+    <StarRating
+  disabled={false}
+  maxStars={10}
+  starSize={20}
+  rating={show.rating.average}
+/>
   </Card>
 
   <Card style={styles.titleCardSummery}>
@@ -102,8 +109,9 @@ const styles = {
     display:'flex',
     flexDirection: 'column',
     height: 300,
-    width: 300,
-    alignItems: 'center'
+    width: 400,
+    alignItems: 'center',
+    top:0
   },
 
   titleCard: {
@@ -119,7 +127,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-between',
     height: 200,
-    width: 300,
+    width: 400,
     
   },
 
@@ -127,7 +135,7 @@ const styles = {
     display:'flex',
     flexDirection: 'column',
     height: 300,
-    width: 300,
+    width: 400,
     alignItems: 'center'
   },
 
