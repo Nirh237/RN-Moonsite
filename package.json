@@ -1,6 +1,6 @@
 {
   "name": "empty-project-template",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "src/App.js",
   "private": true,
   "scripts": {
     "start": "expo start",
@@ -9,11 +9,21 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^31.0.2",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
-  },
-  "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "axios": "^0.18.0",
+    "expo": "^30.0.1",
+    "native-base": "^2.7.2",
+    "react": "16.4.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-camera": "^1.2.0",
+    "react-native-is-iphonex": "^1.0.1",
+    "react-native-multiple-select": "^0.4.4",
+    "react-native-timer-countdown": "^2.0.3",
+    "react-navigation": "^2.11.2",
+    "react-navigation-redux-helpers": "^2.0.5",
+    "react-redux": "^5.0.7",
+    "react-timer-mixin": "^0.13.4",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "validator": "^10.7.1"
   }
 }
